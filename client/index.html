@@ -21,13 +21,14 @@
     <p class="text-center mt-3 mb-3 display-6">Form to create products.</p>
 
     <!-- Optional JavaScript; choose one of the two! -->
-    <form action="#" id="productFrom">
+    <form action="#" id="productForm">
       <div class="container w-50 d-flex flex-column gap-3">
         <div class="form-floating">
           <input
             type="text"
             class="form-control"
             id="title"
+            name="title"
             placeholder="title"
           />
           <label for="title">Title:</label>
@@ -37,6 +38,7 @@
             type="text"
             class="form-control"
             id="description"
+            name="description"
             placeholder="description"
           />
           <label for="description">Description:</label>
@@ -46,6 +48,7 @@
             type="number"
             class="form-control"
             id="price"
+            name="price"
             placeholder="price"
           />
           <label for="price">Price:</label>
@@ -55,6 +58,7 @@
             type="text"
             class="form-control"
             id="category"
+            name="category"
             placeholder="category"
           />
           <label for="category">Category:</label>
@@ -64,6 +68,7 @@
             type="text"
             class="form-control"
             id="image"
+            name="image"
             placeholder="image"
           />
           <label for="image">Image Url:</label>
@@ -73,9 +78,11 @@
             Submit
           </button>
           <button type="reset" class="btn btn-primary" id="reset">Reset</button>
-          <button type="button" class="btn btn-primary" id="products">
-            All products
-          </button>
+          <a href="./product.html">
+            <button type="button" class="btn btn-primary" id="products">
+              All products
+            </button>
+          </a>
         </div>
       </div>
     </form>
