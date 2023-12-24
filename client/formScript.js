@@ -1,31 +1,27 @@
 "use strict";
 
 const productForm = document.getElementById("productForm");
-const title = document.getElementById("title");
-const description = document.getElementById("description");
-const price = document.getElementById("price");
-const category = document.getElementById("category");
-const image = document.getElementById("image");
+
 const submit = document.getElementById("submit");
 
-submit.addEventListener("click", (e) => {
+submit.addEventListener("click", async (e) => {
     e.preventDefault();
 
-    fetch("http://localhost:5000/api/v1/products/create", {
+    let res = await fetch("http://localhost:5000/api/v1/products/create", {
         method: "POST",
         headers: {
-            "Content-Type": "application/json" // Corrected Content-Type
+            "Content-Type": "application/x-www-form-urlencoded",
         },
         // Add the request body here if you're sending data
-        body: JSON.stringify({
-            title: title.value,
-            description: description.value,
-            price: price.value,
-            category: category.value,
-            image: image.value
-        })
+        body: new URLSearchParams(
+            new FormData(productForm)
+        ),
     })
         .then(response => response.json())
-        .then(data => console.log(data))
         .catch(error => console.error("Error:", error));
+
+    if (res.status === 201) {
+        alert("Products added successfully");
+        window.location.reload()
+    }
 });
